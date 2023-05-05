@@ -1,0 +1,46 @@
+*,
+::before,
+::after
+{margin:0;
+padding: 0;
+box-sizing: border-box;}
+
+body
+{background-color:rgb(28,29,30);
+min-height: 100vh;
+display:flex;
+justify-content: center;
+align-items: center;}
+
+.card
+{width: 350px;
+height: 500px;
+perspective: 1000px;/*propriété à ajouter pour améliorer le résultat de la ligne 26(rotate)*/
+transition:all 0.15s ease-out;}
+
+.content-card
+{width : 100%;
+height:100%;
+overflow: hidden;
+border-radius: 25px;/*l'image est rogné jusqu'à cette étape*/
+/*transform:rotateX(30deg) rotateY(30deg);*//*juste pour tester la rotation mais sans l'effet perspective, amélioré grace à la ligne 18*/
+}
+
+.content-card img
+{width: 100%;
+height: 100%;
+object-fit: cover;} /*ajustement à l'objet*/
+
+/*passer en javascript pour appliquer les rotations en survol avec la souris*/
+
+.glow /*pour avoir l'effet reflet*/
+{position:absolute;
+top: 0;
+left:0;
+width:100%;
+height: 100%;
+opacity: 0.5;
+transition:all 0.15s ease-out;
+border-radius: 25px;
+mix-blend-mode: hard-light;/*définit l'harmonie de couleur entre le parent et enfant*/
+background:radial-gradient(circle at 50% 0%, rgb(184,196,211), transparent)}
